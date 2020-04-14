@@ -118,12 +118,21 @@ def file_writer(cwd, fileIn, fileOut):
             if i > 0:
                 if 'Chicago, IL' in row:
                     row = row.replace('Chicago, IL', 'Chicago IL')
-                elif 'UChicago, Regenstine' in row:
-                    row = row.replace('UChicago, Regenstine', 'UChicago Regenstine')
-                elif 'Ave, Chicago' in row:
-                    row = row.replace('Ave, Chicago', 'Ave Chicago IL')
+                #elif 'UChicago, Regenstine' in row:
+                #    row = row.replace('UChicago, Regenstine', 'UChicago Regenstine')
+                #elif 'Ave, Chicago' in row:
+                #    row = row.replace('Ave, Chicago', 'Ave Chicago IL')
+                #elif 'UChicago, Smart Museum' in row:
+                #    row = row.replace('UChicago, Smart Museum', 'UChicago Smart Museum')
+                #elif 'UChicago, Oriental Museum' in row:
+                #    row = row.replace('UChicago, Oriental Museum', 'UChicago Oriental Museum')
+                #elif 'UChicago, Law School' in row:
+                #    row = row.replace('UChicago, Law School', 'UChicago Law School')
+                elif 'UChicago, ' in row:
+                    row = row.replace('UChicago, ', 'UChicago ')
                 row_item = row.strip().split(',')
                 row_item = [row_item[i].strip().replace('"', '') for i in [0, 3, 4, 5]]
+                #print(row_item)
                 row_item = [item.replace(' ', '_') for item in row_item]
                 node_info['lat'].append(float(row_item[2]))
                 node_info["lon"].append(float(row_item[3]))
@@ -350,8 +359,8 @@ def file_writer(cwd, fileIn, fileOut):
 
 
 if __name__ == "__main__":
-    working_directory = "/home/gar305/Documents/array_of_things"
-    fileIn = os.path.join(working_directory, "AoT_Chicago.complete.recent.csv")
+    working_directory = "/mnt/c/Users/jorda/Documents/repos/waggle/array_of_things/AoT_Chicago.complete.2020-04-06"
+    fileIn = os.path.join(working_directory, "data.csv")
     fileOut = os.path.join(working_directory, "aot_chicago_data.h5")
     check_tar_file(city='Chicago')
     file_writer(working_directory, fileIn, fileOut)

@@ -278,7 +278,7 @@ def get_variable_data(filein, parameter, variable, minval, maxval):
 
 
 if __name__ == "__main__":
-    cwd = "/home/gar305/Documents/array_of_things"
+    cwd = "/mnt/c/Users/jorda/Documents/repos/waggle/array_of_things"
 
     if not os.path.exists(os.path.join(cwd, "node_names.txt")):
         get_column_names(os.path.join(cwd, 'nodes.csv'),

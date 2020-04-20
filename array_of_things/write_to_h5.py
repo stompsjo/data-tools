@@ -188,7 +188,8 @@ def file_writer(cwd, fileIn, fileOut):
         if not os.path.isfile(os.path.join(cwd, "%s_descr.csv" % subsys)):
             subset_node_data(os.path.join(cwd, "sensors.csv"), subsys)
         subsys_info[subsys] = {}
-        with open(os.path.join(cwd, "%s_descr.csv" % subsys), 'r') as infile:
+        #with open(os.path.join(cwd, "%s_descr.csv" % subsys), 'r') as infile:
+        with open(os.path.join(cwd, "sensors.csv"), 'r') as infile:
             for i, row in enumerate(infile, 0):
                 row_split = row.split(',')
                 if row_split[2] not in subsys_info[subsys]:
@@ -359,7 +360,7 @@ def file_writer(cwd, fileIn, fileOut):
 
 
 if __name__ == "__main__":
-    working_directory = "/mnt/c/Users/jorda/Documents/repos/waggle/array_of_things/AoT_Chicago.complete.2020-04-06"
+    working_directory = "/home/stomps/data-tools/array_of_things/"
     fileIn = os.path.join(working_directory, "data.csv")
     fileOut = os.path.join(working_directory, "aot_chicago_data.h5")
     check_tar_file(city='Chicago')

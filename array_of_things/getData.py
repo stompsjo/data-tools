@@ -23,7 +23,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 from array_of_things import (get_column_names, subset_node_data,
     convert_to_float, str2float)
-from array_of_things.readFile import subset_node_subsystem
+#from array_of_things.readFile import subset_node_subsystem
 
 
 def make_data_handler(info_dict):
@@ -282,10 +282,10 @@ if __name__ == "__main__":
 
     if not os.path.exists(os.path.join(cwd, "node_names.txt")):
         get_column_names(os.path.join(cwd, 'nodes.csv'),
-                2, varout="nodes", unique=False)
+                0, varout="nodes", unique=False)
     if not os.path.exists(os.path.join(cwd, "subsystem_names.txt")):
         get_column_names(os.path.join(cwd, "sensors.csv"),
-                2, varout="subsys", unique=True)
+                1, varout="subsys", unique=True)
     #------+------------------+----------------+--------------------#
     # First get the information for each of the nodes from nodes.csv
     #------+------------------+----------------+--------------------#

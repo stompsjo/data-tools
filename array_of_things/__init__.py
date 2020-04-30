@@ -95,10 +95,28 @@ def get_column_names(filein, col_num, varout="nodes", unique=False):
                             row_items.append(row_split[col_num])
             if len(row_items) > 0:
                 for i, item in enumerate(row_items, 0):
-                    if i < len(row_items)-1:
-                        outfile.write("%s\n" % item)
-                    else:
-                        outfile.write("%s" % item)
+                    outfile.write("%s\n" % item)
+                    #if i < len(row_items)-1:
+                    #    outfile.write("%s\n" % item)
+                    #else:
+                    #    outfile.write("%s" % item)
+    elif varout == "subsys":
+        fileout = os.path.join(os.path.dirname(filein), "subsystem_names.txt")
+        with open(fileout, 'w') as outfile:
+            row_items = []
+            with open(filein, 'r') as infile:
+                for i, row in enumerate(infile, 0):
+                    if i > 0:
+                        row_split = row.strip().split(',')
+                        if row_split[col_num] not in row_items:
+                            row_items.append(row_split[col_num])
+            if len(row_items) > 0:
+                for i, item in enumerate(row_items, 0):
+                    outfile.write("%s\n" % item)
+                    #if i < len(row_items)-1:
+                    #    outfile.write("%s\n" % item)
+                    #else:
+                    #    outfile.write("%s" % item)
     return
 
 

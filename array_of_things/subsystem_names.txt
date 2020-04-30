@@ -1,1 +1,10 @@
 chemsense
+alphasense
+plantower
+metsense
+audio
+lightsense
+wagman
+nc
+ep
+image

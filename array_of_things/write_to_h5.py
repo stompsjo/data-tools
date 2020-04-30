@@ -101,9 +101,9 @@ def file_writer(cwd, fileIn, fileOut):
 #    cwd = "/flush1/gar305/aot"
 
     if not os.path.exists(os.path.join(cwd, "node_names.txt")):
-        get_column_names(os.path.join(cwd, 'nodes.csv'), 1, varout="nodes", unique=False)
+        get_column_names(os.path.join(cwd, 'nodes.csv'), 0, varout="nodes", unique=False)
     if not os.path.exists(os.path.join(cwd, "subsystem_names.txt")):
-        get_column_names(os.path.join(cwd, "sensors.csv"), 2, varout="subsys", unique=True)
+        get_column_names(os.path.join(cwd, "sensors.csv"), 1, varout="subsys", unique=True)
     #------+------------------+----------------+--------------------#
     # First get the information for each of the nodes from nodes.csv
     #------+------------------+----------------+--------------------#
